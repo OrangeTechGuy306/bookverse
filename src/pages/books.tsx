@@ -5,7 +5,7 @@ import { Avatar, Button, Modal, Table } from "antd"
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { BiTrash } from "react-icons/bi";
-import { PiBooksDuotone } from "react-icons/pi";
+
 import { toast } from "sonner";
 import { PiBookOpenTextBold } from "react-icons/pi";
 import { BsEyeFill } from "react-icons/bs";
@@ -134,7 +134,9 @@ const BooksPage = () => {
         <DashboardLayout>
 
             <div className="mb-5">
-                <SummaryCard count={books?.length as any} color="bg-blue-600 rounded-md" icon={<PiBookOpenTextBold />} text="Books"/>
+                <SummaryCard 
+                // eslint-disable-next-line
+                count={books?.length as any} color="bg-blue-600 rounded-md" icon={<PiBookOpenTextBold />} text="Books"/>
             </div>
 
             <div>
@@ -152,11 +154,13 @@ const BooksPage = () => {
                             action: <div className="flex items-center gap-2">
                                 <Button 
                                     style={{backgroundColor: "red", color: "white", padding: "0 5px"}} 
-                                    onClick={()=>{openDeleteModal(book._id)}}>
+                                    // eslint-disable-next-line
+                                    onClick={()=>{openDeleteModal(book._id as any)}}>
                                     <BiTrash />
                                 </Button>
-                                <Button style={{backgroundColor: "blue", color: "white", padding: "0 5px"}} 
-                                onClick={()=>gotoViewPage(book._id)}>
+                                <Button style={{backgroundColor: "blue", color: "white", padding: "0 5px"}}
+                                // eslint-disable-next-line 
+                                onClick={()=>gotoViewPage(book._id as any)}>
                                 <BsEyeFill />
                                 </Button>
                             </div>

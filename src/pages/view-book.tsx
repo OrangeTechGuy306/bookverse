@@ -42,7 +42,9 @@ const ViewBooks = () => {
                 <small>By: {book?.author} published: {book?.publishDate} </small>
                 <Badge count={book?.format} />
            
-                <Rate count={5} allowHalf={true} value={book?.rating as any} />
+                <Rate count={5} allowHalf={true} 
+                // eslint-disable-next-line
+                value={book?.rating as any} />
                 <p>{book?.description}</p>
                 <ul className="flex flex-col gap-2">
                     <li>ISBN: {book?.isbn}</li>

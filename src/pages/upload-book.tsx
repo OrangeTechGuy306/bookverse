@@ -6,13 +6,16 @@ import { BookProps } from './books';
 import { toast } from 'sonner';
 import axios from 'axios';
 import { API_URL } from '@/lib/server';
+import { BsFileEarmarkCheck } from "react-icons/bs";
 
 
 const UploadBookPage = () => {
 
   const [cover, setCover] = useState<Blob>()
-  const [fileType, setFileType] = useState<Blob>()
   const [file, setFile] = useState<Blob>()
+  // const [name, setName]= useState({
+  //   name: "",
+  // })
 
 
   const [book, setBook] = useState<BookProps>({
@@ -94,7 +97,9 @@ const UploadBookPage = () => {
               <label htmlFor="cover" className='w-[200px] h-[300px] bg-slate-100 flex flex-col justify-center items-center cursor-pointer text-slate-500 border-[.5px] border-slate-400 rounded-md overflow-hidden p-1'>
                   <img src={URL.createObjectURL(cover)} alt="" className='w-[100%]'/>
               </label>
-              <input type="file" id='cover' className='hidden' onChange={(e)=>setCover(e.target.files[0])}/>
+              <input type="file" id='cover' className='hidden' 
+              // eslint-disable-next-line
+              onChange={(e:any)=>setCover(e.target.files[0])}/>
             </div>
             :
             <div className='my-3 flex flex-col'>
@@ -103,9 +108,10 @@ const UploadBookPage = () => {
                   <span className='text-xl font-bold'>Upload Book Cover</span>
             </label>
             <input type="file" id='cover' className='hidden' 
-              onChange={(e)=>{
                 // eslint-disable-next-line
-                setCover( e.target.files[0] as any)
+                onChange={(e: any)=>{
+                // eslint-disable-next-line
+                setCover(e.target.files[0] as any)
             }}/>
           </div>
             }
@@ -113,12 +119,17 @@ const UploadBookPage = () => {
           <div className='my-3 flex flex-col'>
               <label htmlFor="media" className='w-[100%] py-2 px-4 bg-slate-100 flex flex-col justify-center items-center cursor-pointer text-slate-500 border-[.5px] border-slate-400 rounded-md overflow-hidden p-1'>
                   {file ? 
-                  <span>{file?.name}</span>
+                  <span>{
+                     <BsFileEarmarkCheck />
+                    }
+                    </span>
                   :
                   <span>Pick file to upload</span>
                 }
               </label>
-              <input type="file" id='media' className='hidden' onChange={(e)=>setFile(e.target.files[0])}/>
+              <input type="file" id='media' className='hidden' 
+              // eslint-disable-next-line
+              onChange={(e: any)=>setFile(e.target.files[0])}/>
             </div>
         </div>
 
