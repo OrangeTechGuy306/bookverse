@@ -1,6 +1,6 @@
 import { API_URL, FILE_URL } from "@/lib/server"
 import { adminInfoType } from "@/pages/admins"
-import { Avatar, Badge, Input } from "antd"
+import { Avatar, Badge, Button, Input } from "antd"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 // import { BiMoon } from "react-icons/bi"
@@ -40,6 +40,11 @@ const DashboardLayout = ({children} : {children: React.ReactNode}) => {
         }
     }
 
+    const logoutAdmin = ()=>{
+        localStorage.removeItem("admin_token")
+        navigate("/signin")
+    }
+
 
     useEffect(()=>{
         authenticateUser()
@@ -77,6 +82,9 @@ const DashboardLayout = ({children} : {children: React.ReactNode}) => {
                 <span>Admin</span>
             </Link>
         </div>
+
+
+        <Button style={{color: "white", backgroundColor: "red", border: "none"}} onClick={logoutAdmin}>Logout</Button>
 
         </aside>
 

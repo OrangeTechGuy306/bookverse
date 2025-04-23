@@ -19,7 +19,7 @@ const DashboardPage = () => {
             <img src="/assets/dashbook.webp" alt="" width={200}/>
 
             <div className='flex flex-col gap-2'>
-                <h1 className='text-2xl text-white'>Hello! Welcome Orange Tech Guy</h1>
+                <h1 className='text-2xl text-white'>Hello! And Welcome</h1>
                 <p className='text-slate-400'>The library serves as a welcome home for knowledge  <br /> seekers and readers online</p>
                 {/* <PulsatingButton pulseColor='red'>Join Affiliate Program</PulsatingButton> */}
                 <button className='bg-white py-1 px-2 rounded-md w-[max-content] text-blue-500 shadow-xl border-[2px] border-blue-300 cursor-pointer'>Go to book page</button>

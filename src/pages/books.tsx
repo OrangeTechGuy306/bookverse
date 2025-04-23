@@ -1,6 +1,6 @@
 import DashboardLayout from "@/components/custom/_layout"
 import SummaryCard from "@/components/custom/summarycard";
-import { API_URL } from "@/lib/server";
+import { API_URL, FILE_URL } from "@/lib/server";
 import { Avatar, Button, Modal, Table } from "antd"
 import axios from "axios";
 import { useEffect, useState } from "react"
@@ -145,7 +145,7 @@ const BooksPage = () => {
                         {
                             key: i,
                             serialNo: i + 1,
-                            cover: <Avatar src={book.coverUrl} />,
+                            cover: <Avatar src={`${FILE_URL}/${book.coverUrl}`} />,
                             title: book.title,
                             pages: book.pages,
                             author: book.author,
